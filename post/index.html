@@ -265,7 +265,7 @@
     }
 
    const populatePostHTML = () => {
-        let postsHTML = "";
+        let postHTML = "";
         const [beforeDot, afterDot] = String(post.satoshis / 100000000).split('.');
         if (afterDot) {
             const afterDotTrimmed = afterDot.slice(0, 6);
@@ -273,16 +273,16 @@
         } else {
             post.bsv = parseFloat(beforeDot)
         }
-        if (posts[i].content === null) posts[i].content = "";
-        posts[i].content = imagify(urlify(posts[i].content))
-        let images = JSON.parse(posts[i].images);
+        if (post.content === null) post.content = "";
+        post.content = imagify(urlify(post.content))
+        let images = JSON.parse(post.images);
         if (Array.isArray(images)) {
             for (let j = 0; j < images.length; j++) {
-                posts[i].content += `<img src="${dataURL}images/${images[j]}">`
+                post.content += `<img src="${dataURL}images/${images[j]}">`
             }
         }
 
-        postsHTML += `<div class="post-container">
+        postHTML += `<div class="post-container">
             <div class="post-wrapper">
                 <div class="post-top">
                     <div class="post-top-left"><a href="/profile/?address=${post.address}" class="image">
@@ -298,7 +298,7 @@
                         </svg></a>
                 </div>
                 <div class="content-wrapper"><a href="/post/?txid=${post.txid}"></a>
-                        <div style="word-break: break-word;">${posts[i].content}</div>
+                        <div style="word-break: break-word;">${post.content}</div>
                 </div>
                 <div class="post-bottom">
                     <div class="lock">
@@ -345,7 +345,7 @@
             <div class="post-end"></div>
         </div>`
 
-        document.getElementById('postHTML').innerHTML = postsHTML;
+        document.getElementById('postHTML').innerHTML = postHTML;
         jdenticon()
     }
 
