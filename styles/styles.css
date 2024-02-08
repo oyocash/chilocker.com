@@ -702,11 +702,11 @@ main {
 
 @media screen and (max-width: 1024px) {
     .nav-bottom {
-        max-width: 404px;
-        left: 60%;
+        max-width: 360px;
+        left: 70%;
     }
     .nav-bottom .nav-button {
-        max-width: 400px;
+        max-width: 350px;
     grid-template-columns: 20% 20% 20% 20% 20%;
     }
     .nav-bottom .nav-button button{
