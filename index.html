@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <title>Chilocker.com - information locker</title>
+        <meta name="description" content="Lock bits of information.">
+        <meta name=”robots” content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta property="og:title" content="Chilocker.com - real world locks">
+        <meta property="og:image" content="/assets/marker-icon-2x-bit-1.png">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+        <link rel="manifest" href="/assets/site.webmanifest">
+
+        <link href="/styles/shuallet.css" rel="stylesheet" type="text/css">
+        <script src="/scripts/bsv.browser.min.js"></script>
+        <script src="/scripts/chilocker.js"></script>
+        <link href="/styles/styles.css" rel="stylesheet">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+    </head>
+    <body>
+    <nav >
+        <div class="nav-container"><a href="/">
+                <img src="/assets/logo.png" width="64" height="64">
+            </a>
+            <div class="nav-center-container"></div>
+            <div class="nav-right-container"></div>
+        </div>
+    </nav>
+    <main>
+        <div class="main-container">
+            <ul class="tabs">
+                <a href="/?tab=top&amp;skip=0" id="topTab">
+                    <li>
+                        <div>
+                            <p>top</p>
+                        </div>
+                    </li>
+                </a><a href="/?tab=latest&amp;skip=0" id="latestTab">
+                    <li>
+                        <div>
+                            <p>latest</p>
+                        </div>
+                    </li>
+                </a><a href="/?tab=trending&amp;skip=0" id="trendingTab">
+                    <li>
+                        <div>
+                            <p>trending</p>
+                        </div>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <div class="content-container">
+            <div class="content-wrapper">
+
+                <div class="posts-container">
+                    <div class="newPostForm">
+                        <div class="tooltip-bigContent"tyle="display: block;">
+                            <div class="popupForm"><textarea id="newPostContent" placeholder="What's happening?"></textarea></div>
+
+                            <div class="popupForm">
+                                <button id="newPostButton" onclick="addPost()">Post</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="postsHTML"></div>
+
+                    <div class="content-controls">
+                        <a id='prevPageLink'><button class="hidden" id='prevPage'><span class="content"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"></path></svg></span></button></a>
+
+                        <p class="current-page" id="currentPage">1</p>
+
+                        <a id="nextPageLink"><button class="hidden" id="nextPage"><span class="content"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"></path></svg></span></button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="nav-bottom">
+        <div class="nav-button">
+            <button type="button"><a href="/"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"></path></svg><span class="text">Home</span></a></button>
+            <button type="button"><a href="/wallet"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"></path><path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"></path></svg></a><span class="text">Wallet</span></button>
+            <div class="center-button"><button type="button" class="center-button"><a href="/#newPostContent"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16"></path></svg><span class="text">New post</span></a></button></div>
+
+            <button type="button" class="notifications"><div class="notif_wrapper"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"></svg></div><span class="text"></span></button>
+            <!-- <button type="button" class="notifications"><div class="notif_wrapper"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.6c-3.7 11.6-5.6 23.9-5.6 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1z"></path></svg><div class="notif_count">0</div></div><span class="text">Notifications</span></button> -->
+            <button type="button"><a href="/profile"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18"><path d="M9 0a9 9 0 0 0-9 9 8.654 8.654 0 0 0 .05.92 9 9 0 0 0 17.9 0A8.654 8.654 0 0 0 18 9a9 9 0 0 0-9-9zm5.42 13.42c-.01 0-.06.08-.07.08a6.975 6.975 0 0 1-10.7 0c-.01 0-.06-.08-.07-.08a.512.512 0 0 1-.09-.27.522.522 0 0 1 .34-.48c.74-.25 1.45-.49 1.65-.54a.16.16 0 0 1 .03-.13.49.49 0 0 1 .43-.36l1.27-.1a2.077 2.077 0 0 0-.19-.79v-.01a2.814 2.814 0 0 0-.45-.78 3.83 3.83 0 0 1-.79-2.38A3.38 3.38 0 0 1 8.88 4h.24a3.38 3.38 0 0 1 3.1 3.58 3.83 3.83 0 0 1-.79 2.38 2.814 2.814 0 0 0-.45.78v.01a2.077 2.077 0 0 0-.19.79l1.27.1a.49.49 0 0 1 .43.36.16.16 0 0 1 .03.13c.2.05.91.29 1.65.54a.49.49 0 0 1 .25.75z"/></path></svg><span class="text">Profile</span></a></button>
+        </div>
+    </div>
+    <script src="/scripts/jdenticon.min.js"></script>
+    <script src="/scripts/shuallet.bundle.js"></script>
+    </body>
+</html>
+
+<script language='javascript'>
+    var posts = []
+    var postsPerPage = 20
+
+    const showTopTab = () => {
+        document.getElementById('topTab').classList.add('activeTab');
+        document.getElementById('latestTab').classList.remove('activeTab');
+        document.getElementById('trendingTab').classList.remove('activeTab');
+    }
+    const showLatestTab = () => {
+        document.getElementById('topTab').classList.remove('activeTab');
+        document.getElementById('latestTab').classList.add('activeTab');
+        document.getElementById('trendingTab').classList.remove('activeTab');
+    }
+    const showTrendingTab = () => {
+        document.getElementById('topTab').classList.remove('activeTab');
+        document.getElementById('latestTab').classList.remove('activeTab');
+        document.getElementById('trendingTab').classList.add('activeTab');
+    }
+    const showLockForm = (index) => {
+        document.getElementById('form_' + index).style.display = 'block';
+        document.getElementById('form_' + index).style.visibility = 'visible';
+    }
+    const showPrevPageButton = (type, skip) => {
+        skip = skip - postsPerPage;
+        if (skip < 0) skip = 0;
+        document.getElementById('prevPageLink').href = `/?tab=${type}&skip=${skip}`;
+        document.getElementById('prevPage').style.display = 'flex';
+        document.getElementById('prevPage').style.visibility = 'visible';
+    }
+    const showNextPageButton = (type, skip) => {
+        skip = skip + postsPerPage;
+        document.getElementById('nextPageLink').href = `/?tab=${type}&skip=${skip}`;
+        document.getElementById('nextPage').style.display = 'flex';
+        document.getElementById('nextPage').style.visibility = 'visible';
+    }
+
+    const addPost = async() => {
+        if (!localStorage.walletAddress) {
+            alert("You must have a wallet to add posts")
+            window.location.href = '/wallet/';
+        }
+        document.getElementById("newPostButton").disabled = true;
+
+        const currentHeight = await getBlock();
+        let lockHeight = parseInt(currentHeight) + 144*365;
+        let satoshis = 1;
+        let content = document.getElementById('newPostContent').value;
+
+        let rawtx = lockPost(localStorage.walletAddress, lockHeight, satoshis, null, content, null);
+        if (rawtx) {
+            const c = 1;
+            if (c) {
+                rawtx = await payForRawTx(rawtx)
+                const t = await broadcast(rawtx, true, localStorage.walletAddress);
+                if (t.length === 64) {
+                    addTx({'txid': t, 'height': lockHeight, 'satoshis': satoshis})
+                    alert(`Post added: ${t}`);
+                    posts.unshift({txid: t, content: document.getElementById('newPostContent').value, satoshis: satoshis, address: localStorage.walletAddress, txTimestamp: Date.now()})
+
+                    populatePostsHTML()
+                    document.getElementById('newPostContent').value = ""
+                    document.getElementById("newPostButton").disabled = false;
+                } else {
+                    alert(t)
+                    document.getElementById("newPostButton").disabled = false;
+                }
+            } else { 
+                document.getElementById("newPostButton").disabled = false;
+                return
+            }
+        } else {
+            document.getElementById("newPostButton").disabled = false;
+        }
+    }
+
+    const likePost = async (index) => {
+        if (!localStorage.walletAddress) {
+            alert("You must have a wallet to like posts")
+            window.location.href = '/profile/';
+        }
+        document.getElementById("lockToPost").disabled = true;
+
+        const currentHeight = await getBlock();
+        const lockHeight = parseInt(currentHeight) + parseInt(document.getElementById(`likeBlocks_${index}`).value);
+        const lockedBSVs = parseFloat(document.getElementById(`likeCoins_${index}`).value)
+        let satoshis = parseInt(lockedBSVs * 100000000);
+        const txid = posts[index].txid;
+
+        let rawtx = lockLike(localStorage.walletAddress, lockHeight, satoshis, null, txid, null);
+        if (rawtx) {
+            var c;
+            if (lockedBSVs > 0.01) {
+                c = confirm(`Like ${txid} (${lockedBSVs} BSV for ${lockHeight - currentHeight} blocks)?`);
+            } else {
+                c = 1;
+            }
+            if (c) {
+                rawtx = await payForRawTx(rawtx)
+                const t = await broadcast(rawtx, true, localStorage.walletAddress);
+                if (t.length === 64) {
+                    addTx({'txid': t, 'height': lockHeight, 'satoshis': satoshis})
+                    posts[index].bsv = parseFloat(posts[index].bsv) + parseFloat(lockedBSVs)
+                    posts[index].bsv = posts[index].bsv.toFixed(6);
+                    posts[index].satoshis += satoshis
+                    document.getElementById('postBSVValue_' + index).innerHTML = posts[index].bsv;
+
+                    alert(`Post liked: ${t}`);
+
+                    document.getElementById("lockToPost").disabled = false;
+                } else {
+                    alert(t)
+                    document.getElementById("lockToPost").disabled = false;
+                }
+            } else { 
+                document.getElementById("lockToPost").disabled = false;
+                return 
+            }
+        } else {
+            document.getElementById("lockToPost").disabled = false;
+        } 
+    }
+
+    const getLatestPosts = async (skip = 0) => {
+        const r = await fetch(`${dataURL}getLatestPosts/`, {
+            method: 'post',
+            body: JSON.stringify({ skip })
+        })
+        const res = await r.text();
+        return JSON.parse(res);
+    }
+    const getPosts = async (height, skip = 0) => {
+        const r = await fetch(`${dataURL}getPosts/`, {
+            method: 'post',
+            body: JSON.stringify({ height, skip })
+        })
+        const res = await r.text();
+        return JSON.parse(res);
+    }
+    const getTopPosts = async (skip = 0) => {
+        const r = await fetch(`${dataURL}getTopPosts/`, {
+            method: 'post',
+            body: JSON.stringify({ skip })
+        })
+        const res = await r.text();
+        return JSON.parse(res);
+    }
+
+   const populatePostsHTML = () => {
+        let postsHTML = "";
+        for (let i = 0; i < posts.length; i++) {
+            const [beforeDot, afterDot] = String(posts[i].satoshis / 100000000).split('.');
+            if (afterDot) {
+                const afterDotTrimmed = afterDot.slice(0, 6);
+                posts[i].bsv = parseFloat(beforeDot + '.' + afterDotTrimmed);
+            } else {
+                posts[i].bsv = parseFloat(beforeDot)
+            }
+            if (posts[i].content === null) posts[i].content = ""
+
+            postsHTML += `<div class="post-container">
+                <div class="post-wrapper">
+                    <div class="post-top">
+                        <div class="post-top-left"><a href="/profile/?address=${posts[i].address}" class="image">
+                        <svg width="40" height="40" data-jdenticon-value="${posts[i].address}"></svg>
+                        </a>
+                            <div class="content">
+                                <div class="name"><a href="/profile/?address=${posts[i].address}">${posts[i].address.slice(0,8)}...</a></div>
+                                <div class="timeago">· ${timeAgo(posts[i].txTimestamp * 1000)}</div>
+                            </div>
+                        </div>
+                        <a target="_blank" rel="noopener noreferrer" href="https://whatsonchain.com/tx/${posts[i].txid}" class="woc"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M856 376H648V168c0-8.8-7.2-16-16-16H168c-8.8 0-16 7.2-16 16v464c0 8.8 7.2 16 16 16h208v208c0 8.8 7.2 16 16 16h464c8.8 0 16-7.2 16-16V392c0-8.8-7.2-16-16-16zm-480 16v188H220V220h360v156H392c-8.8 0-16 7.2-16 16zm204 52v136H444V444h136zm224 360H444V648h188c8.8 0 16-7.2 16-16V444h156v360z"></path>
+                            </svg></a>
+                    </div>
+                    <div class="content-wrapper"><a href="/post/?txid=${posts[i].txid}"></a>
+                        <div style="word-break: break-word;">${imagify(urlify(posts[i].content))}</div>
+                    </div>
+                    <div class="post-bottom">
+                        <div class="lock">
+                            <div><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" onclick="showLockForm('${i}')">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M12.5 21h-5.5a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 1.74 1.012"></path>
+                                    <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                                    <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                                    <path d="M16 19h6"></path>
+                                    <path d="M19 16v6"></path>
+                                </svg>
+                            </div><button data-drawer-body-scrolling="false" class="value-button"><span class="value" id="postBSVValue_${i}">${posts[i].bsv}</span><svg class="bitcoin" stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <title></title>
+                                    <path d="M14.648 14.423l.003-.004a1.34 1.34 0 0 1-.498.659c-.269.189-.647.338-1.188.364l-1.99.004v-2.93c.288.008 1.565-.013 2.119.015.722.035 1.171.321 1.41.668.262.351.293.82.144 1.224zm-2.129-3.261c.503-.024.852-.162 1.101-.336.214-.146.375-.367.46-.611.134-.375.107-.81-.136-1.135-.223-.319-.638-.584-1.306-.616-.495-.026-1.413-.003-1.664-.01v2.709c.025.004 1.539-.001 1.545-.001zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zm-6.65 2.142c.022-1.477-1.24-2.332-1.908-2.572.715-.491 1.206-1.043 1.206-2.085 0-1.655-1.646-2.43-2.647-2.529-.082-.009-.31-.013-.31-.013V5.361h-1.633l.004 1.583H10.97V5.367H9.31v1.569c-.292.007-2.049.006-2.049.006v1.401h.571c.601.016.822.362.798.677v6.041a.408.408 0 0 1-.371.391c-.249.011-.621 0-.621 0l-.32 1.588h1.996v1.6h1.661v-1.591h1.091v1.594h1.624v-1.588c1.899.05 3.643-1.071 3.66-2.913z"></path>
+                                </svg></button>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-wrapper"><svg onclick="commentIconClick('${posts[i].txid}')" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"></path>
+                                </svg><span class="value"></span></div>
+                        </div>
+                        <div class="share"><svg onclick="shareIconClick('${posts[i].txid}')" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M8 9h-1a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-8a2 2 0 0 0 -2 -2h-1"></path>
+                                <path d="M12 14v-11"></path>
+                                <path d="M9 6l3 -3l3 3"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="popupForm hidden" id="form_${i}">
+                        Lock <input id="likeCoins_${i}" type="number" name="coins" placeholder="BSV" value="0.01"> BSV for 
+                        <select id="likeBlocks_${i}" name="blocks" type="number">
+                            <option value="6">1 hour</option>
+                            <option value="144">1 day</option>
+                            <option value="1008" selected="selected">7 days</option>
+                            <option value="10950">30 days</option>
+                            <option value="52560">1 year</option>
+                            <option value="525600">10 years</option>
+                        </select>
+                        <button id="lockToPost" onclick="likePost(${i})">lock</button>
+                    </div>
+                </div>
+                <div class="post-end"></div>
+            </div>`
+        }
+        document.getElementById('postsHTML').innerHTML = postsHTML;
+        jdenticon()
+    }
+
+    const populatePosts = async(type = 'trending', skip = 0) => {
+        if (type === 'latest') {
+            showLatestTab()
+            posts = await getLatestPosts(skip)
+        } else if (type === 'trending') {
+            showTrendingTab()
+            let currentHeight = await getBlock();
+            posts = await getPosts(currentHeight - 144, skip)
+        } else {
+            type = 'top'
+            showTopTab()
+            posts = await getTopPosts(skip)
+        }
+
+        populatePostsHTML()
+
+        if (skip > 0) {
+            showPrevPageButton(type, skip)
+        }
+        if (posts.length === postsPerPage) {
+            showNextPageButton(type, skip)
+        }
+        var currentPage = parseInt(skip/postsPerPage) + 1
+        document.getElementById('currentPage').innerHTML = currentPage;
+    }
+    (async () => {
+        var type =  "trending";
+        if (getUrlVars()["tab"]) type = getUrlVars()["tab"]
+        var skip = 0
+        if (getUrlVars()["skip"]) skip = parseInt(getUrlVars()["skip"])
+
+        await populatePosts(type, skip)
+    })().catch(e => console.log("Caught: " + e)); // Catches it.
+
+    document.addEventListener("DOMContentLoaded", function() {
+        if(!localStorage.getItem('disclaimerShown')) {
+            alert("Disclaimer\n\nPlease be reminded that we accept no responsibility for any financial losses occurred to users as a result of using this app. Use at your own risk.")
+            localStorage.setItem('disclaimerShown', 1)
+        }
+    })
+</script>

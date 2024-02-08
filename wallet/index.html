@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Chilocker.com - wallet</title>
+        <meta name="description" content="Wallet page of chilocker.com">
+        <meta name=”robots” content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta property="og:title" content="chilocker.com - real world locks.  Wallet page">
+        <meta property="og:image" content="/assets/marker-icon-2x-bit-1.png">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+        <link rel="manifest" href="/assets/site.webmanifest">
+
+        <link href="/styles/shuallet.css" rel="stylesheet" type="text/css">
+        <script src="/scripts/bsv.browser.min.js"></script>
+        <script src="/scripts/qrcode.min.js"></script>
+        <link href="/styles/styles.css" rel="stylesheet">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
+        <script src="/scripts/chilocker.js"></script>
+        <link href="/styles/styles.css" rel="stylesheet">
+    </head>
+    <body>
+    <nav >
+        <div class="nav-container"><a href="/">
+                <img src="/assets/logo.png" width="64" height="64">
+            </a>
+            <div class="nav-center-container"></div>
+            <div class="nav-right-container"></div>
+        </div>
+    </nav>
+    <main>
+        <div class="main-container">
+            <ul class="tabs">
+                <a href="/?tab=top&amp;skip=0" id="topTab">
+                    <li>
+                        <div>
+                            <p>top</p>
+                        </div>
+                    </li>
+                </a><a href="/?tab=latest&amp;skip=0" id="latestTab">
+                    <li>
+                        <div>
+                            <p>latest</p>
+                        </div>
+                    </li>
+                </a><a href="/?tab=trending&amp;skip=0" id="trendingTab">
+                    <li>
+                        <div>
+                            <p>trending</p>
+                        </div>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <div class="content-container">
+            <div class="content-wrapper">
+
+                <div class="posts-container">
+                    <div class="nonmap-container btns center" id="shlogin">
+                        
+                        <div id="walletAddress" class="wallet-address"></div>
+                        <div id="qrcode"></div>
+                        <div id="walletBalance" class="wallet-balance"></div>
+                        <div class="create-wallet">
+                            <button onclick="setupWallet()">Create or import SHUAllet</button>
+                        </div>
+                        <div class="backup-wallet">
+                            <button onclick="backupWallet()">Backup Wallet</button>
+                            <button onclick="sendBSV()">Send</button>
+                            <button onclick="logout()">Logout</button>
+                        </div>
+                    </div>
+                    <input type="file" id="uploadFile" accept=".json" hidden>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="nav-bottom">
+        <div class="nav-button">
+            <button type="button"><a href="/"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"></path></svg><span class="text">Home</span></a></button>
+            <button type="button"><a href="/wallet"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"></path><path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"></path></svg></a><span class="text">Wallet</span></button>
+            <div class="center-button"><button type="button" class="center-button"><a href="/#newPostContent"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 1v16M1 9h16"></path></svg><span class="text">New post</span></a></button></div>
+
+            <button type="button" class="notifications"><div class="notif_wrapper"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"></svg></div><span class="text"></span></button>
+            <!-- <button type="button" class="notifications"><div class="notif_wrapper"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.6c-3.7 11.6-5.6 23.9-5.6 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1z"></path></svg><div class="notif_count">0</div></div><span class="text">Notifications</span></button> -->
+            <button type="button"><a href="/profile"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18"><path d="M9 0a9 9 0 0 0-9 9 8.654 8.654 0 0 0 .05.92 9 9 0 0 0 17.9 0A8.654 8.654 0 0 0 18 9a9 9 0 0 0-9-9zm5.42 13.42c-.01 0-.06.08-.07.08a6.975 6.975 0 0 1-10.7 0c-.01 0-.06-.08-.07-.08a.512.512 0 0 1-.09-.27.522.522 0 0 1 .34-.48c.74-.25 1.45-.49 1.65-.54a.16.16 0 0 1 .03-.13.49.49 0 0 1 .43-.36l1.27-.1a2.077 2.077 0 0 0-.19-.79v-.01a2.814 2.814 0 0 0-.45-.78 3.83 3.83 0 0 1-.79-2.38A3.38 3.38 0 0 1 8.88 4h.24a3.38 3.38 0 0 1 3.1 3.58 3.83 3.83 0 0 1-.79 2.38 2.814 2.814 0 0 0-.45.78v.01a2.077 2.077 0 0 0-.19.79l1.27.1a.49.49 0 0 1 .43.36.16.16 0 0 1 .03.13c.2.05.91.29 1.65.54a.49.49 0 0 1 .25.75z"/></path></svg><span class="text">Profile</span></a></button>
+        </div>
+    </div>
+    <script src="/scripts/shuallet.bundle.js"></script>
+    </body>
+</html>
+
+<script language='javascript'>
+    document.addEventListener("DOMContentLoaded", function() {
+        if(!localStorage.getItem('disclaimerShown')) {
+            alert("Disclaimer\n\nPlease be reminded that we accept no responsibility for any financial losses occurred to users as a result of using this app. Use at your own risk.")
+            localStorage.setItem('disclaimerShown', 1)
+        }
+    })
+</script>

@@ -1,0 +1,738 @@
+@font-face { font-family: RobotoFlex; src: url('../RobotoFlex-Regular.ttf'); }
+body {
+    cursor: auto;
+    font-family: RobotoFlex;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(255, 255, 255));
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    background-origin: padding-box;
+    -webkit-background-clip: border-box;
+    background-color: rgb(214, 219, 220);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0px;
+    line-height: 24px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+    -webkit-background-clip: border-box;
+}
+
+nav {
+    border-color: rgb(229, 231, 235);
+    box-sizing: border-box;
+}
+
+.nav-container {
+    padding: 8px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-container a {
+    padding-left: 64px;
+    padding-right: 64px;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1 1 0%;
+    display: flex;
+    color: rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-center-container {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-right-container {
+    margin-right: 144px;
+    padding-top: 8px;
+    order: 2;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1 1 0%;
+    display: flex;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+main {
+    padding-top: 6px;
+    padding-bottom: 48px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.main-container {
+    color: rgb(107, 114, 128);
+    font-weight: 500;
+    border-color: rgb(229, 231, 235);
+    border-bottom-width: 1px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.tabs {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    display: flex;
+    margin-bottom: -1px;
+    list-style: outside none none;
+    margin: 0px 0px -1px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.tabs a {
+    color: rgb(107, 114, 128);
+    text-decoration: none solid rgb(107, 114, 128);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.tabs a.activeTab {
+    color: rgb(255, 138, 76);
+    text-decoration: 1px solid rgb(107, 114, 128);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.tabs li {
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-bottom-width: 2px;
+    display: inline-block;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.tabs li p {
+    margin: 0px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.content-container {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.content-wrapper {
+    justify-content: center;
+    word-wrap: break-all;         /* All browsers since IE 5.5+ */
+    overflow-wrap: anywhere; 
+    min-width: 1%;
+    display: flex;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.posts-container  {
+    width: 24rem;
+    gap: 0px;
+    grid-template-columns: 384px;
+    display: grid;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+@media screen and (max-width: 1024px) {
+    .posts-container  {
+        width: 95%;
+        grid-template-columns: 95%;
+    }
+}
+
+.post-container {
+    padding: 0px;
+    flex-direction: column;
+    display: flex;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-wrapper {
+    background-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-radius: 8px;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid rgb(229, 231, 235);
+}
+
+.post-top {
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-top-left {
+    border-radius: 9999px;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.post-top-left a.image {
+    color: rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-top-left .content {
+    align-items: center;
+    display: flex;
+    margin-left: 12px;
+    margin-top: -16px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-top-left .content .name {
+    color: rgb(0, 0, 0);
+    line-height: 20px;
+    font-weight: 600;
+    display: block;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-top-left .content .name a {
+    color: rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-top-left .content .timeago {
+    color: rgb(75, 85, 99);
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 8px;
+    display: block;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-top .woc {
+    color: rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-container .content-wrapper {
+    justify-content: left;
+    padding-bottom: 0px;
+    padding-left: 12px;
+    padding-right: 12px;
+    overflow: auto;
+    margin-left: 48px;
+    margin-top: -12px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-container .content-wrapper a {
+    color: rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom {
+    justify-content: space-between;
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+    position: relative;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom svg {
+    cursor: pointer;
+}
+
+.post-bottom .lock {
+    align-items: center;
+    display: flex;
+    margin-left: 48px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom .lock svg {
+    width: 1.5rem;
+    height: 24px;
+    margin-right: 0px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+.post-bottom .lock svg.bitcoin {
+    height: 16px;
+}
+.newPostForm {
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.popupForm {
+    text-align: center;
+}
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+.popupForm input {
+    border-radius: 12px;
+    border: 1px solid rgb(209, 213, 219);
+    background: rgb(249, 250, 251);
+    padding: 10px; 
+    width: 100px;
+    height: 25px;
+    font-family: RobotoFlex;
+    font-size: 16px;
+    color: rgb(17, 24, 39);
+}
+.popupForm input.long {
+    width:95%;
+}
+.popupForm select {
+    border-radius: 12px;
+    border: 1px solid rgb(209, 213, 219);
+    background: rgb(249, 250, 251);
+    padding: 3px; 
+    font-family: RobotoFlex;
+    font-size: 16px;
+    color: rgb(17, 24, 39);
+}
+.popupForm textarea {
+    border-radius: 12px;
+    border: 1px solid rgb(209, 213, 219);
+    background: rgb(249, 250, 251);
+    padding: 10px; 
+    width: 95%;
+    height: 150px;
+    font-family: RobotoFlex;
+    font-size: 16px;
+    color: rgb(17, 24, 39);
+}
+.popupForm button {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(to right bottom, rgb(253, 186, 140), rgb(208, 56, 1));
+    border: 1px solid #fff;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    cursor:pointer;
+    font-family: RobotoFlex;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    margin-top: 5px;
+    padding: 8px 16px;
+}
+
+.post-bottom .lock .value-button {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 20px;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin-left: 4px;
+    appearance: button;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    text-transform: none;
+    font-family: RobotoFlex;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    font-weight: 400;
+    margin: 0px 0px 0px 4px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom .value {
+    font-weight: 500;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom .lock .value-button svg {
+    color: rgb(255, 138, 76);
+    margin-left: 4px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+.post-bottom .comment {
+    top: 2px;
+    left: 224px;
+    position: absolute;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom .comment .comment-wrapper {
+    gap: 4px;
+    display: flex;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom .comment svg{
+    width: 1rem;
+    height: 16px;
+    margin-top: 4px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom .share {
+    gap: 8px;
+    display: flex;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-bottom .share svg {
+    color: rgb(0, 0, 0);
+    width: 1.25rem;
+    height: 20px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.post-end {
+    opacity: 0;
+    transition-duration: 0.3s;
+    background-color: rgb(0, 0, 0);
+    z-index: 10;
+    inset: 0px;
+    position: fixed;
+    pointer-events: none;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.content-controls {
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 32px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.content-controls a {
+    color: rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.content-controls a button {
+    color: rgb(17, 24, 39);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 2px;
+    --tw-gradient-to: #d03801 1;
+    --tw-gradient-from: #fdba8c 1;
+    background-image: linear-gradient(to right bottom, rgb(253, 186, 140), rgb(208, 56, 1));
+    border-radius: 8px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    position: relative;
+    cursor: pointer;
+    appearance: button;
+    background-color: rgba(0, 0, 0, 0);
+    text-transform: none;
+    font-family: RobotoFlex;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    margin: 0px 8px 8px 0px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.content-controls a button .content {
+    transition: all 0.5s ease-out 0s;
+    transition-timing-function: ease-out;
+    transition-duration: 0.5s;
+    transition-property: all;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    position: relative;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.content-controls a button .content svg {
+    width: 0.875rem;
+    height: 14px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom {
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(229, 231, 235);
+    border-width: 1px;
+    border-radius: 9999px;
+    transform: matrix(1, 0, 0, 1, -256, 0);
+    max-width: 512px;
+    width: 100%;
+    height: 64px;
+    z-index: 50;
+    left:50%;
+    bottom: 16px;
+    position: fixed;
+    box-sizing: border-box;
+    border: 1px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button {
+    grid-template-columns: 102px 102px 102px 102px 102px;
+    max-width: 512px;
+    height: 62px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button{
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    cursor: pointer;
+    appearance: button;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    text-transform: none;
+    font-family: RobotoFlex;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgb(0, 0, 0);
+    margin: 0px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button svg{
+    color: rgb(107, 114, 128);
+    width: 1.25rem;
+    height: 20px;
+    margin-bottom: 4px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button .text{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
+    white-space: nowrap;
+    border-width: 0px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button .center-button {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button .center-button button {
+    font-weight: 500;
+    --tw-gradient-to: #d03801 1;
+    --tw-gradient-from: #fdba8c 1;
+    background-image: linear-gradient(to right bottom, rgb(253, 186, 140), rgb(208, 56, 1));
+    border-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    appearance: button;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: RobotoFlex;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(0, 0, 0);
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button .center-button button svg {
+    color: rgb(255, 255, 255);
+    width: 1rem;
+    height: 16px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button.notifications {
+    opacity: 1;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    cursor: pointer;
+    appearance: button;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: RobotoFlex;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgb(0, 0, 0);
+    margin: 0px;
+    padding: 0px 20px 4px;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button.notifications .notif_wrapper {
+    position: relative;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button.notifications svg {
+    color: rgb(107, 114, 128);
+    width: 1.5rem;
+    height: 24px;
+    display: block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid rgb(229, 231, 235);
+}
+
+.nav-bottom .nav-button button.notifications .notif_count {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: rgb(240, 82, 82);
+    border-color: rgb(255, 255, 255);
+    border-width: 2px;
+    border-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 24px;
+    display: flex;
+    left: 16px;
+    bottom: 16px;
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.current-page {
+    color: rgb(17, 24, 39);
+    font-family: RobotoFlex;
+    font-feature-settings: normal;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 32px;
+    margin: 0;
+    padding-top: 4px;
+}
