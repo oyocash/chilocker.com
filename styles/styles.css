@@ -776,3 +776,18 @@ main {
     margin: 0;
     padding-top: 4px;
 }
+
+.wallet-container button{
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(to right bottom, rgb(253, 186, 140), rgb(208, 56, 1));
+    border: 1px solid #fff;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    cursor:pointer;
+    font-family: RobotoFlex;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    margin-top: 5px;
+    padding: 8px 16px;
+}
