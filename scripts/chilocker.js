@@ -45,7 +45,7 @@ const timeAgo = (date) => {
 function isYoutubeURL(url){
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     var match = url.match(regExp);
-    return (match&&match[7].length==11)? true : false;
+    return match[7].length;
 }
 
 function isTwitterURL(url) { 
@@ -57,8 +57,8 @@ function isTwitterURL(url) {
 function urlify(text) {
   var urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.replace(urlRegex, function(url) {
-    var video
-    if (video = isYoutubeURL(url)) {
+    var video = isYoutubeURL(url)
+    if (video.length === 11) {
       return `<iframe href="${url}" data-videoid="${video}" class="embedded-video-large" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Embed videos and playlists" width="90%" src="${url}?autoplay=0&amp;cc_lang_pref=en&amp;cc_load_policy=1&amp;controls=2&amp;rel=0&amp;hl=en&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fchilocker.com" id="widget2"></iframe>`
     }
     if (isTwitterURL(url)) {
