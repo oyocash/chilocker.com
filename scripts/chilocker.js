@@ -57,9 +57,9 @@ function isTwitterURL(url) {
 function urlify(text) {
   var urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.replace(urlRegex, function(url) {
-    if (isYoutubeURL(url)) {
-      return `<iframe width="420" height="345" src="${url}"></iframe>`
-      return `<iframe width="560" height="315" src="${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+    var video
+    if (video = isYoutubeURL(url)) {
+      return `<iframe href="${url}" data-videoid="${video}" class="embedded-video-large" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Embed videos and playlists" width="90%" src="${url}?autoplay=0&amp;cc_lang_pref=en&amp;cc_load_policy=1&amp;controls=2&amp;rel=0&amp;hl=en&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fchilocker.com" id="widget2"></iframe>`
     }
     if (isTwitterURL(url)) {
       return `<a href="${url}" target="_blank">${url}</a>`;
