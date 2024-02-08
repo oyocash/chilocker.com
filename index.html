@@ -256,7 +256,14 @@
             } else {
                 posts[i].bsv = parseFloat(beforeDot)
             }
-            if (posts[i].content === null) posts[i].content = ""
+            if (posts[i].content === null) posts[i].content = "";
+            posts[i].content = imagify(urlify(posts[i].content))
+            let images = JSON.parse(posts[i].images);
+            if (Array.isArray(images)) {
+                for (let j = 0; j < images.length; j++) {
+                    posts[i].content += `<img src="${dataURL}images/${images[j]}">`
+                }
+            }
 
             postsHTML += `<div class="post-container">
                 <div class="post-wrapper">
@@ -274,7 +281,7 @@
                             </svg></a>
                     </div>
                     <div class="content-wrapper"><a href="/post/?txid=${posts[i].txid}"></a>
-                        <div style="word-break: break-word;">${imagify(urlify(posts[i].content))}</div>
+                        <div style="word-break: break-word;">${posts[i].content}</div>
                     </div>
                     <div class="post-bottom">
                         <div class="lock">

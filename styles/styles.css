@@ -275,6 +275,11 @@ main {
     border: 0px solid rgb(229, 231, 235);
 }
 
+.post-container .content-wrapper img {
+    max-width:95%;
+    max-height: 90%;
+}
+
 .post-bottom {
     justify-content: space-between;
     display: flex;
