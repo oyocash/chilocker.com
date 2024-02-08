@@ -705,7 +705,7 @@ main {
         max-width: 512px;
     }
     .nav-bottom .nav-button {
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 15% 15% 15% 15% 15%;
     }
     .nav-bottom .nav-button button{
         padding-left: 5px;
