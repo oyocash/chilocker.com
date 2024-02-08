@@ -702,7 +702,7 @@ main {
 
 @media screen and (max-width: 1024px) {
     .nav-bottom {
-        left: 0;
+        left: 100%;
     }
     .nav-bottom .nav-button {
         max-width: 50px;
