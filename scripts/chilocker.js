@@ -45,7 +45,7 @@ const timeAgo = (date) => {
 function isYoutubeURL(url){
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     var match = url.match(regExp);
-    return match[7];
+    return (match&&match[7].length==11)? match[7] : false;
 }
 
 function isTwitterURL(url) { 
@@ -58,9 +58,8 @@ function urlify(text) {
   var urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.replace(urlRegex, function(url) {
     var video = isYoutubeURL(url)
-    console.log(video)
-    if (video.length === 11) {
-      return `<iframe href="${url}" data-videoid="${video}" class="embedded-video-large" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Embed videos and playlists" width="90%" src="${url}?autoplay=0&amp;cc_lang_pref=en&amp;cc_load_policy=1&amp;controls=2&amp;rel=0&amp;hl=en&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fchilocker.com" id="widget2"></iframe>`
+    if (video) {
+      return `<iframe class="video" src="https://www.youtube-nocookie.com/embed/${video}?si=bwFdHI21ciks-DwQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
     }
     if (isTwitterURL(url)) {
       return `<a href="${url}" target="_blank">${url}</a>`;

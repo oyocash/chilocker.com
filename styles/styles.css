@@ -279,6 +279,11 @@ main {
     max-width:95%;
     max-height: 90%;
 }
+.post-container .content-wrapper .video {
+    max-width:95%;
+    max-height: 90%;
+}
+
 
 .post-bottom {
     justify-content: space-between;
@@ -595,6 +600,14 @@ main {
     margin: 0px;
     box-sizing: border-box;
     border: 0px solid rgb(229, 231, 235);
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-bottom .nav-button button{
+        padding-left: 5px;
+        padding-right: 5px;
+        width:60px;
+    }
 }
 
 .nav-bottom .nav-button button svg{
