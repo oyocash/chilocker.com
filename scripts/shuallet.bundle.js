@@ -861,7 +861,8 @@ const setupWallet = async() => {
             const ownerPK = newPK();
             restoreWallet(ownerPK, paymentPk, true);
             alert(`Wallet created, click OK to download backup json file.`);
-            backupWallet();        
+            backupWallet();
+            location.reload();
         } else { fileUpload.click() }
     } else { alert(`Please backup your wallet before logging out.`) }
 }
