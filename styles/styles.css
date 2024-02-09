@@ -165,8 +165,8 @@ main {
 }
 @media screen and (max-width: 1024px) {
     .posts-container  {
-        width: 95%;
-        grid-template-columns: 95%;
+        width: 100%;
+        grid-template-columns: 100%;
     }
 }
 
@@ -702,7 +702,8 @@ main {
 
 @media screen and (max-width: 1024px) {
     .nav-bottom {
-        max-width: 360px;
+/*        max-width: 360px;*/
+        max-width: 90%;
         left: 70%;
     }
     .nav-bottom .nav-button {
