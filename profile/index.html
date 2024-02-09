@@ -211,7 +211,7 @@
                 posts[i].bsv = parseFloat(beforeDot)
             }
             if (posts[i].content === null) posts[i].content = "";
-            posts[i].content = newLinesToBr(imagify(urlify(posts[i].content)))
+            posts[i].content = imagify(urlify(posts[i].content))
             let images = JSON.parse(posts[i].images);
             if (Array.isArray(images)) {
                 for (let j = 0; j < images.length; j++) {
