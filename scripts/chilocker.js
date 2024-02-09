@@ -55,7 +55,7 @@ function isTwitterURL(url) {
 }
 
 function newLinesToBr(text) {
-  text = text.replace(/(?:\r\n|\r|\n)/g, '<br>')
+  return text.replace(/(?:\r\n|\r|\n)/g, '<br>')
 }
 
 function urlify(text) {
