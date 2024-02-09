@@ -54,6 +54,10 @@ function isTwitterURL(url) {
   return false;
 }
 
+function newLinesToBr(text) {
+  text = text.replace(/(?:\r\n|\r|\n)/g, '<br>')
+}
+
 function urlify(text) {
   var urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.replace(urlRegex, function(url) {
