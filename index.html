@@ -156,11 +156,10 @@
                 if (t.length === 64) {
                     addTx({'txid': t, 'height': lockHeight, 'satoshis': satoshis})
                     alert(`Post added: ${t}`);
-                    posts.unshift({txid: t, content: document.getElementById('newPostContent').value, satoshis: satoshis, address: localStorage.walletAddress, txTimestamp: Date.now()})
+                    posts.unshift({txid: t, content: content, satoshis: satoshis, address: localStorage.walletAddress, txTimestamp: Date.now()})
 
                     populatePostsHTML()
                     document.getElementById('newPostContent').value = ""
-                    document.getElementById('newPostContent').innerHTML = ""
                     document.getElementById("newPostButton").disabled = false;
                 } else {
                     alert(t)
