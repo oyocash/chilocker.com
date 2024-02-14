@@ -140,12 +140,15 @@
             alert("You must have a wallet to add posts")
             window.location.href = '/wallet/';
         }
+        let content = document.getElementById('newPostContent').value;
+        if (!content) {
+            return;
+        }
         document.getElementById("newPostButton").disabled = true;
 
         const currentHeight = await getBlock();
         let lockHeight = parseInt(currentHeight) + 144*365;
         let satoshis = 1;
-        let content = document.getElementById('newPostContent').value;
 
         let rawtx = lockPost(localStorage.walletAddress, lockHeight, satoshis, null, content, null);
         if (rawtx) {
