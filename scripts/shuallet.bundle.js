@@ -758,20 +758,19 @@ const normalizeUTXOs = utxos => {
         }
     })
 }
-const getUTXOs = async (address, use_woc = 0) => {
-    // const utxos = await getCachedUTXOs();
-    // if (!utxos.length || use_woc === 1) {
-        // console.log(`Calling WhatsOnChain UTXOs endpoint...`);
+const getUTXOs = async (address, refresh = 0) => {
+    const utxos = await getCachedUTXOs();
+    if (!utxos.length || refresh === 1) {
+        console.log(`Calling WhatsOnChain UTXOs endpoint...`);
+        const r = await fetch(`https://api.whatsonchain.com/v1/bsv/main/address/${address}/unspent`);
+        const res = await r.json();
+        return normalizeUTXOs(res);
         // const r1 = await fetch(`https://api.whatsonchain.com/v1/bsv/main/address/${address}/confirmed/unspent`);
         // const res1 = await r1.json();
         // const r2 = await fetch(`https://api.whatsonchain.com/v1/bsv/main/address/${address}/unconfirmed/unspent`);
         // const res2 = await r2.json();
         // return normalizeUTXOs(res1.result.concat(res2.result));
-
-        const r = await fetch(`https://api.bitails.io/address/${address}/unspent`);
-        const { unspent } = await r.json();
-        return normalizeUTXOs(unspent);
-    // } else { return utxos }
+    } else { return utxos }
 }
 const btUTXOs = async address => {
     const r = await fetch(`https://api.bitails.io/address/${address}/unspent`);
@@ -780,7 +779,7 @@ const btUTXOs = async address => {
 }
 const between = (x, min, max) => { return x >= min && x <= max }
 const getPaymentUTXOs = async(address, amount) => {
-    const utxos = await getUTXOs(address, 0);
+    const utxos = await getUTXOs(address);
     const addr = bsv.Address.fromString(address);
     const script = bsv.Script.fromAddress(addr);
     let cache = [], satoshis = 0;
@@ -809,7 +808,7 @@ const getPaymentUTXOs = async(address, amount) => {
 }
 const getWalletBalance = async(address = localStorage.walletAddress) => {
     document.getElementsByClassName('create-wallet')[0].style.display = 'none';
-    const utxos = await getUTXOs(address, 1);
+    const utxos = await getUTXOs(address);
     utxos.forEach(u => addUTXO(u));
     const balance = utxos.reduce(((t, e) => t + e.satoshis), 0)
     return balance; 

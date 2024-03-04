@@ -93,8 +93,9 @@
 </html>
 
 <script language='javascript'>
-    document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.walletAddress) getUTXOs(localStorage.walletAddress, 1)
 
+    document.addEventListener("DOMContentLoaded", function() {
         if(!localStorage.getItem('disclaimerShown')) {
             alert("Disclaimer\n\nPlease be reminded that we accept no responsibility for any financial losses occurred to users as a result of using this app. Use at your own risk.")
             localStorage.setItem('disclaimerShown', 1)
