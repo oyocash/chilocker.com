@@ -97,7 +97,8 @@ const getPaymentUTXOs = async(address, amount) => {
 }
 const getWalletBalance = async(address = localStorage.walletAddress) => {
     document.getElementsByClassName('create-wallet')[0].style.display = 'none';
-    const utxos = await getUTXOs(address);
+    clearUTXOs();
+    const utxos = await getUTXOs(address, 1);
     utxos.forEach(u => addUTXO(u));
     const balance = utxos.reduce(((t, e) => t + e.satoshis), 0)
     return balance; 
